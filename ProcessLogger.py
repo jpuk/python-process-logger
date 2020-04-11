@@ -87,6 +87,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         # my message handler connection
+        self.menuMenu.triggered.connect(self.quitApp)
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.update_process_list_widgit)
         self.timer.start(self.refresh_rate)
@@ -102,7 +103,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Process Logger QT"))
         self.listSizeLabel.setText(_translate("MainWindow", "0"))
         self.label.setText(_translate("MainWindow", "Number of processes logged:"))
         self.label_2.setText(_translate("MainWindow", "Refresh in ms:"))
@@ -139,6 +140,9 @@ class Ui_MainWindow(object):
     def adjust_refresh_rate(self, rate_in_ms):
         print("adjusting refresh rate in ms to {}".format(rate_in_ms))
         # todo: implement changing update frequency
+
+    def quitApp(self):
+        exit(0)
 
 if __name__ == "__main__":
     import sys
