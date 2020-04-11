@@ -30,7 +30,7 @@ class ProcessLogger:
 
 class Ui_MainWindow(object):
     logger = ProcessLogger()
-    #processObjectsList = []
+    # choose how often we rescan for new processes in ms.
     refresh_rate = 1000
 
     def setupUi(self, MainWindow):
